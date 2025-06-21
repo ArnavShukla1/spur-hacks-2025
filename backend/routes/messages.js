@@ -22,7 +22,30 @@ router.post("/summarize", async (req, res) => {
     if (!apiKey)
       return res.status(500).json({ error: "Gemini API key not set" });
     // Custom prompt for Gemini
-    const prompt = `You are an expert startup advisor. Given the following Slack conversation, provide a concise, actionable summary with important details, insights, and recommendations that can help the startup grow, succeed, and adhere to deadlines. Do not use bullet points. Write in a clear, narrative style.
+    const prompt = `You are an expert startup advisor with deep knowledge of product development, team dynamics, growth strategy, and operational efficiency. Given the following Slack conversation among team members, provide a well-structured and insightful summary that captures the key takeaways, important decisions, deadlines, blockers, and opportunities discussed.
+
+Your response should be formatted in Markdown. Use bold for key points, and use bullet points (\u2022) for important decisions, blockers, recommendations, and action items.
+
+Structure your summary as follows:
+
+**Executive Overview:**
+A concise summary of the overall discussion.
+
+**Important Decisions:**
+• List each decision as a bullet point, with the most critical words or phrases in bold.
+
+**Deadlines & Risks:**
+• List deadlines, blockers, or risks as bullet points, bolding dates or critical issues.
+
+**Insights & Recommendations:**
+• List insights or advice as bullet points, bolding the most actionable or strategic points.
+
+**Action Items:**
+• List follow-ups or next steps as bullet points, bolding responsible people or deadlines.
+
+If there are moments of strong collaboration, miscommunication, or strategic misalignment, highlight them in bold.
+
+Write in a clear, formal, but readable tone for internal stakeholders, founders, or advisors.
 
 Conversation:
 ${messages.map((m) => m.text).join("\n")}`;

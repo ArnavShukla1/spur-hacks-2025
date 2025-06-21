@@ -3,9 +3,22 @@ import Navbar from "./Navbar";
 import HowItWorksSection from "./HowItWorksSection";
 import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
+import ReactMarkdown from "react-markdown";
 import "./App.css";
 
 function Messages({ messages, onSummarize, showSummary, summary }) {
+  // Extract the most important messages (e.g., those containing 'deadline', 'urgent', 'blocker', 'decision', or are the longest)
+  let importantMessages = [];
+  if (messages && messages.length > 0) {
+    importantMessages = messages
+      .filter(
+        (m) =>
+          /deadline|urgent|blocker|decision|asap|critical|important|due|reminder/i.test(
+            m.text
+          ) || m.text.length > 80
+      )
+      .slice(0, 3); // Show up to 3
+  }
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
@@ -21,7 +34,9 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
             color: "#23243a",
             borderRadius: 16,
             padding: "2rem 2.5rem 2rem 2.5rem",
-            maxWidth: 600,
+            maxWidth: 700,
+            minWidth: 320,
+            width: "90vw",
             boxShadow: "0 8px 32px #b39ddb33, 0 1.5px 0 #bfcfff",
             fontSize: "1.18rem",
             fontWeight: 500,
@@ -29,8 +44,42 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
             border: "2px solid #bfcfff",
             position: "relative",
             transition: "box-shadow 0.2s, border 0.2s, background 0.2s",
+            overflow: "hidden",
+            wordBreak: "break-word",
+            maxHeight: "80vh",
+            overflowY: "auto",
           }}
         >
+          {/* Highlight important messages at the top */}
+          {importantMessages.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <div
+                style={{
+                  fontWeight: 700,
+                  color: "#7c4dff",
+                  fontSize: 18,
+                  marginBottom: 6,
+                }}
+              >
+                Key Messages
+              </div>
+              {importantMessages.map((m, i) => (
+                <div
+                  key={i}
+                  style={{
+                    fontWeight: 700,
+                    color: "#23243a",
+                    marginBottom: 4,
+                    background: "#f3eafe",
+                    borderRadius: 6,
+                    padding: "6px 12px",
+                  }}
+                >
+                  {m.text}
+                </div>
+              ))}
+            </div>
+          )}
           <div
             style={{
               display: "flex",
@@ -79,7 +128,7 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
               Insights & Summary
             </h2>
           </div>
-          <p
+          <div
             style={{
               margin: 0,
               color: "#23243a",
@@ -87,8 +136,10 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
               lineHeight: 1.6,
             }}
           >
-            {summary ? summary : "Generating summary..."}
-          </p>
+            <ReactMarkdown>
+              {summary ? summary : "Generating summary..."}
+            </ReactMarkdown>
+          </div>
         </div>
       )}
     </div>
