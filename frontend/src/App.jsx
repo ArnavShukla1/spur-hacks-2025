@@ -7,7 +7,9 @@ import SolutionSection from "./SolutionSection";
 import "./App.css";
 
 function App() {
+  // State: whether dark mode is active (false/true, default true)
   const [darkMode, setDarkMode] = useState(true);
+  // State: which tab is active ("home", "enterprise", "how", "solution", "problem", default "home")
   const [activeTab, setActiveTab] = useState("home");
 
   useEffect(() => {
@@ -28,12 +30,14 @@ function App() {
 
   return (
     <>
+      {/*Navigation bar*/}
       <Navbar
         darkMode={darkMode}
         setDarkMode={setDarkMode}
         setActiveTab={setActiveTab}
         activeTab={activeTab}
       />
+      {/*Display the page corresponding to the active tab*/}
       {activeTab === "how" ? (
         <div
           style={{
