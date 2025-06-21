@@ -66,12 +66,34 @@ function ProblemSection({ darkMode }) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontSize: '24px',
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
         >
-        A
+        
+        <p
+            style={{
+                position: 'absolute',
+                top: '18%',
+                fontSize: '60px',
+                marginTop: '10px',
+                textAlign: 'center',
+                fontWeight: '1000',
+            }}
+        >
+            ~ 20%
+            <p
+                style={{
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '1.25',
+                }}
+            >
+                of engineering time <br />
+                spent of communication <br />
+                overhead <br />
+            </p>
+        </p>
     </div>
 
     <div
@@ -88,12 +110,33 @@ function ProblemSection({ darkMode }) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontSize: '24px',
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
         >
-        A
+        
+        <p
+            style={{
+                position: 'absolute',
+                top: '18%',
+                fontSize: '60px',
+                marginTop: '10px',
+                textAlign: 'center',
+                fontWeight: '1000',
+            }}
+        >
+            78%
+            <p
+                style={{
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '1.25',
+                }}
+            >
+                teams are cross-functional <br />
+                leading to duplicated work<br />
+            </p>
+        </p>
     </div>
 
     <div
