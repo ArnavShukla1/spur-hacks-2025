@@ -19,19 +19,21 @@ function ProblemSection({ darkMode }) {
         <div
             style={{
                 fontWeight: 800,
-                fontSize: 30,
-                marginBottom: 10,
+                fontSize: 40,
+                marginBottom: 50,
                 lineHeight: 0,
                 color: "#bfcfff",
                 letterSpacing: -0.5,
-                textShadow: "0 2px 8px #0006",
+                textShadow: "0 2px 50px #bfcfff",
             }}
         >
-        Collaboration and Coordination Overhead
+        Collaboration & Coordination Overhead
         </div>
       <p>
-        We provide an innovative solution to help you manage your tasks
-        efficiently.
+        How many times have you struggled to read somebody else's code <br /> 
+        and parse through a series of indecipherable syntax? The reality for <br />
+        countless developers is that they spend a disproportionate amount <br />
+        trying 
       </p>
       <ul>
         <li>Feature 1: Task Management</li>
