@@ -5,9 +5,38 @@ import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
 import "./App.css";
 
+function Messages({ onSummarize }) {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/messages")
+      .then((res) => res.json())
+      .then((data) => setMessages(data))
+      .catch((err) => console.error("Error fetching messages:", err));
+  }, []);
+
+  return (
+    <div>
+      <h2>Slack Messages</h2>
+      <ul>
+        {messages.map((msg) => (
+          <li key={msg.id}>
+            <strong>{msg.user_id}</strong>: {msg.text}{" "}
+            <em>({msg.created_at})</em>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => onSummarize(messages)}>
+        Summarize with Gemini
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState("home");
+  const [summary, setSummary] = useState("");
 
   useEffect(() => {
     const pathToTab = (pathname) => {
@@ -24,6 +53,16 @@ function App() {
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
+
+  const handleSummarize = async (messages) => {
+    const res = await fetch("http://localhost:3001/messages/summarize", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages }),
+    });
+    const data = await res.json();
+    setSummary(data.summary);
+  };
 
   return (
     <>
@@ -136,6 +175,16 @@ function App() {
           >
             Get Started
           </button>
+          <div>
+            <h2>Slack Messages</h2>
+            <Messages onSummarize={handleSummarize} />
+            {summary && (
+              <div>
+                <h2>Gemini Summary</h2>
+                <p>{summary}</p>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </>
