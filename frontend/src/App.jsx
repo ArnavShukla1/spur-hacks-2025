@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import ProblemSection from "./ProblemSection";
 import HowItWorksSection from "./HowItWorksSection";
 import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
@@ -47,6 +48,8 @@ function App() {
         >
           <HowItWorksSection darkMode={darkMode} />
         </div>
+      ) : activeTab === "problem" ? (
+        <ProblemSection darkMode={darkMode} />
       ) : activeTab === "enterprise" ? (
         <EnterpriseSection darkMode={darkMode} />
       ) : activeTab === "solution" ? (
