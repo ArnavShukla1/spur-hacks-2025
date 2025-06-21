@@ -23,24 +23,37 @@ function ProblemSection({ darkMode }) {
             style={{
                 position: 'absolute',
                 top: '200px',
-                left: '500px',
-                fontWeight: 800,
-                fontSize: 40,
+                left: '450px',
+                fontWeight: '800',
+                fontSize: '45px',
                 marginBottom: 10,
                 lineHeight: 0,
-                color: "#bfcfff",
+                color: "#7c4dff",
                 letterSpacing: -0.5,
-                textShadow: "0 2px 50px #bfcfff",
+                textShadow: "0 2px 50px #7c4dff",
             }}
         >
         Collaboration & Coordination Overhead
         </div>
+
+        <div
+            style={{
+              position: 'absolute',
+              top: '220px',
+              left: '820px',
+              width: 80,
+              height: 4,
+              background: "#7c4dff",
+              borderRadius: 2,
+              margin: "1.5rem auto",
+            }}
+        />
 <p
   style={{
     position: 'absolute',     // or 'absolute', depending on layout
     top: '250px',
     left: '550px',
-    fontWeight: '600',       // or a number like 500, 600, 700
+    fontWeight: '550',       // or a number like 500, 600, 700
   }}
   > How many times have you struggled to read somebody else's code and parse through <br /> 
     a series of indecipherable syntax? The reality for countless developers is that <br />
@@ -153,12 +166,34 @@ function ProblemSection({ darkMode }) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontSize: '24px',
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
         >
-        A
+        
+        <p
+            style={{
+                position: 'absolute',
+                top: '18%',
+                fontSize: '50px',
+                marginTop: '35px',
+                textAlign: 'center',
+                fontWeight: '1000',
+                lineHeight: '1.15',
+            }}
+        >
+            - $47 Mil
+            <p
+                style={{
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    lineHeight: '1.25',
+                }}
+            >
+                teams are cross-functional <br />
+                leading to duplicated work<br />
+            </p>
+        </p>
     </div>
 
 <div/>
