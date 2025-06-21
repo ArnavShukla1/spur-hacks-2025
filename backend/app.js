@@ -3,9 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const slackRoutes = require("./routes/slack");
 const messagesRoutes = require("./routes/messages");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Slack events endpoint (no body parser before this!)
 app.use("/slack", slackRoutes);

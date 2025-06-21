@@ -5,30 +5,92 @@ import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
 import "./App.css";
 
-function Messages({ onSummarize }) {
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/messages")
-      .then((res) => res.json())
-      .then((data) => setMessages(data))
-      .catch((err) => console.error("Error fetching messages:", err));
-  }, []);
-
+function Messages({ messages, onSummarize, showSummary, summary }) {
   return (
-    <div>
-      <h2>Slack Messages</h2>
-      <ul>
-        {messages.map((msg) => (
-          <li key={msg.id}>
-            <strong>{msg.user_id}</strong>: {msg.text}{" "}
-            <em>({msg.created_at})</em>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => onSummarize(messages)}>
-        Summarize with Gemini
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <button style={{ marginTop: 32 }} onClick={() => onSummarize(messages)}>
+        Summarise Slack Messages
       </button>
+      {showSummary && (
+        <div
+          style={{
+            marginTop: 32,
+            background: "#fff",
+            color: "#23243a",
+            borderRadius: 16,
+            padding: "2rem 2.5rem 2rem 2.5rem",
+            maxWidth: 600,
+            boxShadow: "0 8px 32px #b39ddb33, 0 1.5px 0 #bfcfff",
+            fontSize: "1.18rem",
+            fontWeight: 500,
+            textAlign: "left",
+            border: "2px solid #bfcfff",
+            position: "relative",
+            transition: "box-shadow 0.2s, border 0.2s, background 0.2s",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              marginBottom: 10,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 28,
+                color: "#7c4dff",
+                background: "#ede7f6",
+                borderRadius: 10,
+                padding: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 2px 8px #b39ddb33",
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7c4dff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
+              </svg>
+            </span>
+            <h2
+              style={{
+                color: "#7c4dff",
+                margin: 0,
+                fontSize: 22,
+                fontWeight: 700,
+                letterSpacing: -0.5,
+              }}
+            >
+              Insights & Summary
+            </h2>
+          </div>
+          <p
+            style={{
+              margin: 0,
+              color: "#23243a",
+              fontWeight: 500,
+              lineHeight: 1.6,
+            }}
+          >
+            {summary ? summary : "Generating summary..."}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -36,7 +98,9 @@ function Messages({ onSummarize }) {
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState("home");
+  const [messages, setMessages] = useState([]);
   const [summary, setSummary] = useState("");
+  const [showSummary, setShowSummary] = useState(false);
 
   useEffect(() => {
     const pathToTab = (pathname) => {
@@ -54,7 +118,16 @@ function App() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:3001/messages")
+      .then((res) => res.json())
+      .then((data) => setMessages(data))
+      .catch((err) => console.error("Error fetching messages:", err));
+  }, []);
+
   const handleSummarize = async (messages) => {
+    setShowSummary(true); // Show the summary box immediately
+    setSummary(""); // Clear previous summary
     const res = await fetch("http://localhost:3001/messages/summarize", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -89,7 +162,13 @@ function App() {
       ) : activeTab === "enterprise" ? (
         <EnterpriseSection darkMode={darkMode} />
       ) : activeTab === "solution" ? (
-        <SolutionSection darkMode={darkMode} />
+        <SolutionSection
+          darkMode={darkMode}
+          messages={messages}
+          onSummarize={handleSummarize}
+          showSummary={showSummary}
+          summary={summary}
+        />
       ) : (
         <div
           style={{
@@ -172,19 +251,19 @@ function App() {
               marginRight: 16,
               transition: "background 0.3s",
             }}
+            onClick={() => {
+              setActiveTab("how");
+              window.history.pushState({}, "", "/how-it-works");
+            }}
           >
             Get Started
           </button>
-          <div>
-            <h2>Slack Messages</h2>
-            <Messages onSummarize={handleSummarize} />
-            {summary && (
-              <div>
-                <h2>Gemini Summary</h2>
-                <p>{summary}</p>
-              </div>
-            )}
-          </div>
+          <Messages
+            messages={messages}
+            onSummarize={handleSummarize}
+            showSummary={showSummary}
+            summary={summary}
+          />
         </div>
       )}
     </>

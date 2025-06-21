@@ -13,7 +13,9 @@ function SolutionSection({ darkMode }) {
         <li>Feature 2: Time Tracking</li>
         <li>Feature 3: Reporting</li>
       </ul>
-      <button>Get Started</button>
+      <button onClick={() => (window.location.href = "/how-it-works")}>
+        Get Started
+      </button>
     </div>
   );
 }
