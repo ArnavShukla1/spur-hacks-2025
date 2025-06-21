@@ -50,10 +50,10 @@ function ProblemSection({ darkMode }) {
         />
 <p
   style={{
-    position: 'absolute',     // or 'absolute', depending on layout
+    position: 'absolute',   
     top: '250px',
     left: '550px',
-    fontWeight: '550',       // or a number like 500, 600, 700
+    fontWeight: '550',       
   }}
   > How many times have you struggled to read somebody else's code and parse through <br /> 
     a series of indecipherable syntax? The reality for countless developers is that <br />
@@ -73,8 +73,8 @@ function ProblemSection({ darkMode }) {
             width: '300px',
             height: '300px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(90, 88, 166, 0.5)', // semi-transparent background
-            border: '2px solid #5f62b8',               // solid border
+            backgroundColor: 'rgba(90, 88, 166, 0.5)', 
+            border: '2px solid #5f62b8',            
             color: '#e0e3ff',
             display: 'flex',
             justifyContent: 'center',
@@ -117,8 +117,8 @@ function ProblemSection({ darkMode }) {
             width: '300px',
             height: '300px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(90, 88, 166, 0.5)', // semi-transparent background
-            border: '2px solid #5f62b8',               // solid border
+            backgroundColor: 'rgba(90, 88, 166, 0.5)', 
+            border: '2px solid #5f62b8',               
             color: '#e0e3ff',
             display: 'flex',
             justifyContent: 'center',
@@ -160,8 +160,8 @@ function ProblemSection({ darkMode }) {
             width: '300px',
             height: '300px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(90, 88, 166, 0.5)', // semi-transparent background
-            border: '2px solid #5f62b8',               // solid border
+            backgroundColor: 'rgba(90, 88, 166, 0.5)',
+            border: '2px solid #5f62b8',               
             color: '#e0e3ff',
             display: 'flex',
             justifyContent: 'center',
