@@ -1,5 +1,4 @@
 import React from "react";
-import Apple from "/Users/arnavshukla/Projects/spur-hacks-2025/frontend/public/summary-screenshot.png";
 
 function HowItWorksSection({ darkMode }) {
   const cardBackgroundColor = darkMode
@@ -43,75 +42,22 @@ function HowItWorksSection({ darkMode }) {
         style={{ paddingTop: 100, zIndex: 1, margin: 0, padding: 0 }}
       >
         {/* Add summary screenshot image as a card, styled and animated like the step cards */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            marginBottom: 48,
-            width: "100%",
-            maxWidth: 1200,
-            marginLeft: 0,
-          }}
-        >
-          <div
-            className="summary-image-card"
-            style={{
-              alignSelf: "flex-start",
-              background: cardBackgroundColor,
-              borderRadius: 28,
-              boxShadow: `0 8px 32px ${boxShadowColor}44, 0 1.5px 0 ${
-                darkMode ? "#222" : "#999"
-              }`,
-              padding: 0, // Remove inner padding so image fills the card
-              width: "min(540px, 90vw)",
-              border: `1.5px solid ${borderColor}`,
-              color: textColor,
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              fontFamily: "Inter, sans-serif",
-              backdropFilter: "blur(12px)",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-              marginBottom: 0,
-              overflow: "hidden", // Ensure image corners match card
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow = `0 16px 48px ${boxShadowColor}77, 0 2px 0 ${
-                darkMode ? "#222" : "#999"
-              }`;
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = `0 8px 32px ${boxShadowColor}44, 0 1.5px 0 ${
-                darkMode ? "#222" : "#999"
-              }`;
-            }}
-          >
-            <img
-              src={Apple}
-              alt="Summary UI Example"
-              style={{
-                width: "100%",
-                height: "100%",
-                maxWidth: "100%",
-                minWidth: 0,
-                borderRadius: 28, // Match card border radius
-                boxShadow: "none", // Remove inner shadow
-                border: "none", // Remove inner border
-                background: "none", // Remove background
-                margin: 0,
-                display: "block",
-                objectFit: "cover",
-                transition: "box-shadow 0.3s, border 0.3s, background 0.3s",
-              }}
-            />
-          </div>
-        </div>
+        
+        <img
+  src="/summary-screenshot.png"
+  alt="Summary UI Example"
+  style={{
+    position: "absolute",
+    top: "130px",
+    left: "300px",
+    width: "600px",
+    height: "410px",
+    objectFit: "cover",
+    borderRadius: 10,
+    display: "block",
+  }}
+/>
+
         <div
           style={{
             display: "flex",
