@@ -242,6 +242,48 @@ function App() {
             transition: "background 0.3s, color 0.3s",
           }}
         >
+          {/* Fancy IntelliHQ Title */}
+          <div
+            style={{
+              fontFamily: "Inter, Segoe UI, Arial, sans-serif",
+              fontWeight: 900,
+              fontSize: "4.5rem",
+              letterSpacing: "0.08em",
+              background: darkMode
+                ? "linear-gradient(90deg, #b39ddb 10%, #7c4dff 60%, #fff 100%)"
+                : "linear-gradient(90deg, #7c4dff 10%, #9C27B0 60%, #23243a 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: darkMode
+                ? "0 4px 32px #7c4dff55, 0 1.5px 0 #bfcfff"
+                : "0 4px 32px #7c4dff33, 0 1.5px 0 #bfcfff",
+              marginBottom: "0.5rem",
+              marginTop: "-2rem",
+              userSelect: "none",
+              transition: "background 0.3s, color 0.3s",
+              textAlign: "center",
+            }}
+          >
+            Intelli
+            <span
+              style={{
+                fontWeight: 900,
+                letterSpacing: "0.12em",
+                background: darkMode
+                  ? "linear-gradient(90deg, #fff 10%, #b39ddb 90%)"
+                  : "linear-gradient(90deg, #9C27B0 10%, #7c4dff 90%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: darkMode
+                  ? "0 2px 16px #fff8, 0 1.5px 0 #bfcfff"
+                  : "0 2px 16px #7c4dff33, 0 1.5px 0 #bfcfff",
+                fontStyle: "italic",
+                fontSize: "1.1em",
+              }}
+            >
+              HQ
+            </span>
+          </div>
           <div
             style={{
               letterSpacing: "0.2em",
