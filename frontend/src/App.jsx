@@ -6,6 +6,7 @@ import SolutionSection from "./SolutionSection";
 import ProblemSection from "./ProblemSection";
 import ReactMarkdown from "react-markdown";
 import "./App.css";
+import paperAirplane from "./assets/paper-airplane.svg";
 
 function Messages({ messages, onSummarize, showSummary, summary }) {
   // Extract the most important messages (e.g., those containing 'deadline', 'urgent', 'blocker', 'decision', or are the longest)
@@ -188,6 +189,8 @@ function App() {
     const data = await res.json();
     setSummary(data.summary);
   };
+  // Import the SVG at the top of your file:
+  // import paperAirplane from "./assets/paper-airplane.svg";
 
   return (
     <>
@@ -284,6 +287,11 @@ function App() {
               HQ
             </span>
           </div>
+          <img src={paperAirplane} style={
+            {
+              filter: darkMode ? "invert(100%)" : ""
+            }
+            } id="paper-airplane" alt="Paper Airplane" />
           <div
             style={{
               letterSpacing: "0.2em",

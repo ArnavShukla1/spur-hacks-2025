@@ -40,3 +40,41 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Paper airplane animation*/
+@keyframes paper-airplane-animation
+{
+  0%
+  {
+    bottom: 20%;
+    left: 0%;
+    transform: rotate(90deg);
+  }  
+
+  30%
+  {
+    bottom: 0%;
+    left: 30%;
+    transform: rotate(20deg);
+  }
+
+  100%
+  {
+    bottom: 100%;
+    left: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+/* Paper airplane */
+#paper-airplane
+{
+  position: absolute;
+  width: 10em;
+  animation-name: paper-airplane-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+
+  bottom: 100%;
+  left: 100%;
+}
