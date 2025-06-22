@@ -25,7 +25,11 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <button style={{ marginTop: 32 }} onClick={() => onSummarize(messages)}>
+      <button 
+        style={{ marginTop: 32,
+                 position: "absolute",
+                 top: "500px",
+      }} onClick={() => onSummarize(messages)}>
         Summarise Slack Messages
       </button>
       {showSummary && (
@@ -44,7 +48,8 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
             fontWeight: 500,
             textAlign: "left",
             border: "2px solid #bfcfff",
-            position: "relative",
+            position: "absolute",
+            top: "575px",
             transition: "box-shadow 0.2s, border 0.2s, background 0.2s",
             overflow: "hidden",
             wordBreak: "break-word",
@@ -84,6 +89,7 @@ function Messages({ messages, onSummarize, showSummary, summary }) {
           )}
           <div
             style={{
+              
               display: "flex",
               alignItems: "center",
               gap: 12,
@@ -246,6 +252,9 @@ function App() {
           {/* Fancy IntelliHQ Title */}
           <div
             style={{
+              position: "absolute",
+              top: "230px",
+              left: "670px",
               fontFamily: "Inter, Segoe UI, Arial, sans-serif",
               fontWeight: 900,
               fontSize: "4.5rem",
@@ -292,6 +301,8 @@ function App() {
             } id="paper-airplane" alt="Paper Airplane" />
           <div
             style={{
+              position: "absolute",
+              top: "180px",
               letterSpacing: "0.2em",
               color: darkMode ? "#b39ddb" : "#7c4dff",
               fontWeight: 600,
@@ -299,20 +310,13 @@ function App() {
               marginBottom: "1rem",
             }}
           >
-            THE WORLD'S FIRST
+            WE PRESENT TO YOU...
           </div>
-          <h1
-            style={{
-              fontSize: "4rem",
-              fontWeight: 700,
-              color: darkMode ? "#c7aaff" : "#7c4dff",
-              margin: 0,
-            }}
-          >
-            Org-Wide Brain
-          </h1>
+          
           <div
             style={{
+              position: "absolute",
+              top: "300px",
               width: 80,
               height: 4,
               background: darkMode ? "#b39ddb" : "#7c4dff",
@@ -322,6 +326,8 @@ function App() {
           />
           <div
             style={{
+              position: "absolute",
+              top: "350px",
               fontSize: "1.5rem",
               color: darkMode ? "#bdbdbd" : "#444",
               textAlign: "center",
@@ -339,6 +345,9 @@ function App() {
           </div>
           <button
             style={{
+              position: "absolute",
+              left: "770px",
+              top: "460px",
               background: darkMode ? "#b39ddb" : "#7c4dff",
               color: "#fff",
               fontWeight: 600,
@@ -361,6 +370,10 @@ function App() {
             Get Started
           </button>
           <Messages
+            style={{
+              position: "absolute",
+              top: "1800px",
+            }}
             messages={messages}
             onSummarize={handleSummarize}
             showSummary={showSummary}

@@ -197,15 +197,6 @@ function ProblemSection({ darkMode }) {
     </div>
 
 <div/>
-      <button
-      style={{
-        position: 'absolute',
-        top: '420px',
-        left: '758px',
-        height: '50px',
-        width: '200px',
-      }}
-      >Get Started</button>
     </div>
     
   );
