@@ -189,8 +189,6 @@ function App() {
     const data = await res.json();
     setSummary(data.summary);
   };
-  // Import the SVG at the top of your file:
-  // import paperAirplane from "./assets/paper-airplane.svg";
 
   return (
     <>
