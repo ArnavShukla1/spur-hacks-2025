@@ -274,11 +274,11 @@ function App() {
               textAlign: "center",
             }}
           >
-            Intelli
+            Intelli 
             <span
               style={{
                 fontWeight: 900,
-                letterSpacing: "0.12em",
+                letterSpacing: "0.10em",
                 background: darkMode
                   ? "linear-gradient(90deg, #fff 10%, #b39ddb 90%)"
                   : "linear-gradient(90deg, #9C27B0 10%, #7c4dff 90%)",
@@ -348,6 +348,7 @@ function App() {
               position: "absolute",
               left: "770px",
               top: "460px",
+              left: "765px",
               background: darkMode ? "#b39ddb" : "#7c4dff",
               color: "#fff",
               fontWeight: 600,
