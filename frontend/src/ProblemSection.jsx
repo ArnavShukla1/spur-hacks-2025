@@ -55,7 +55,9 @@ function ProblemSection({ darkMode }) {
     left: '550px',
     fontWeight: '550',       
   }}
-  > How many times have you struggled to read somebody else's code and parse through <br /> 
+  > <br />
+    <br />
+    How many times have you struggled to read somebody else's code and parse through <br /> 
     a series of indecipherable syntax? The reality for countless developers is that <br />
     they spend a disproportionate amount of time trying to understaand their <br />
     collaborators' code or keep up with the latest changes in a project, unneccessarily <br />
@@ -82,6 +84,14 @@ function ProblemSection({ darkMode }) {
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
+        onMouseOver={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 12px 40px #b39ddb77, 0 2px 0 #222")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 8px 32px #b39ddb44, 0 1.5px 0 #222")
+          }
         >
         
         <p
@@ -107,6 +117,7 @@ function ProblemSection({ darkMode }) {
                 overhead <br />
             </p>
         </p>
+        
     </div>
 
     <div
@@ -126,6 +137,14 @@ function ProblemSection({ darkMode }) {
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
+        onMouseOver={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 12px 40px #b39ddb77, 0 2px 0 #222")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 8px 32px #b39ddb44, 0 1.5px 0 #222")
+          }
         >
         
         <p
@@ -169,6 +188,14 @@ function ProblemSection({ darkMode }) {
             userSelect: 'none',
             boxShadow: '0 4px 25px rgba(95, 98, 184, 0.6)',
         }}
+        onMouseOver={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 12px 40px #b39ddb77, 0 2px 0 #222")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.boxShadow =
+              "0 8px 32px #b39ddb44, 0 1.5px 0 #222")
+          }
         >
         
         <p
