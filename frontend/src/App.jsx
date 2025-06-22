@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import HowItWorksSection from "./HowItWorksSection";
 import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
+import ProblemSection from "./ProblemSection";
 import ReactMarkdown from "react-markdown";
 import "./App.css";
 
@@ -220,7 +221,9 @@ function App() {
           showSummary={showSummary}
           summary={summary}
         />
-      ) : (
+      ) : activeTab === "problem" ? (
+        <ProblemSection darkMode={darkMode} />
+      ) : activeTab === "home" || activeTab === "features" ? (
         <div
           style={{
             minHeight: "100vh",
@@ -316,6 +319,8 @@ function App() {
             summary={summary}
           />
         </div>
+      ) : (
+        <ProblemSection darkMode={darkMode} />
       )}
     </>
   );
