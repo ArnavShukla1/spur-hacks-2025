@@ -5,6 +5,7 @@ import HowItWorksSection from "./HowItWorksSection";
 import EnterpriseSection from "./EnterpriseSection";
 import SolutionSection from "./SolutionSection";
 import "./App.css";
+import paperAirplane from "./assets/paper-airplane.svg";
 
 function App() {
   // State: whether dark mode is active (false/true, default true)
@@ -27,6 +28,9 @@ function App() {
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
+
+  // Import the SVG at the top of your file:
+  // import paperAirplane from "./assets/paper-airplane.svg";
 
   return (
     <>
@@ -77,6 +81,11 @@ function App() {
             transition: "background 0.3s, color 0.3s",
           }}
         >
+          <img src={paperAirplane} style={
+            {
+              filter: darkMode ? "invert(100%)" : ""
+            }
+            } id="paper-airplane" alt="Paper Airplane" />
           <div
             style={{
               letterSpacing: "0.2em",
