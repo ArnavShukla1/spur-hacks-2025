@@ -44,19 +44,19 @@ function HowItWorksSection({ darkMode }) {
         {/* Add summary screenshot image as a card, styled and animated like the step cards */}
         
         <img
-  src="/summary-screenshot.png"
-  alt="Summary UI Example"
-  style={{
-    position: "absolute",
-    top: "130px",
-    left: "300px",
-    width: "600px",
-    height: "410px",
-    objectFit: "cover",
-    borderRadius: 10,
-    display: "block",
-  }}
-/>
+          src="/summary-screenshot.png"
+          alt="Summary UI Example"
+          style={{
+            position: "absolute",
+            top: "130px",
+            left: "300px",
+            width: "600px",
+            height: "410px",
+            objectFit: "cover",
+            borderRadius: 10,
+            display: "block",
+          }}
+        />
 
         <div
           style={{
