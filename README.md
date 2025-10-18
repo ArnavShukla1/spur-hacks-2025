@@ -1,4 +1,4 @@
-![Demo](IntelliHQ_demo)
+![Demo](IntelliHQ_Demo.png)
 
 # spur-hacks-2025 Task Breakdown
 
