@@ -1,3 +1,5 @@
+![Demo](IntelliHQ_demo)
+
 # spur-hacks-2025 Task Breakdown
 
 12-Hour MVP Breakdown (Team of 4)
